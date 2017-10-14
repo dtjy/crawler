@@ -24,6 +24,11 @@ import org.htmlparser.util.NodeIterator;
 import org.htmlparser.util.NodeList;
 import org.htmlparser.util.ParserException;
  
+/**
+ * 用于下载网页内的图片
+ * @author Administrator
+ *
+ */
 public class MiniCrawler {
      
     private Set<String> alreadyCrawledSet;

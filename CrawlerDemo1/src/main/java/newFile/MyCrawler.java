@@ -20,7 +20,7 @@ public class MyCrawler {
 		LinkFilter filter = new LinkFilter() {
 			
 			public boolean accept(String url) {
-				if(url.startsWith(url)){
+				if(url.startsWith("http://www.travelsky.net/")){
 					return true;
 				}
 				else {
@@ -37,9 +37,10 @@ public class MyCrawler {
 			if(visitUrl==null){
 				continue;
 			}
-			DownLoadFile downLoadFile = new DownLoadFile();
+			System.out.println(visitUrl);
+			DownLoadFile downLoader = new DownLoadFile();
 			//下载网页
-			downLoadFile.downloadFile(visitUrl);
+			downLoader.downloadFile(visitUrl);
 			//该URL放入月访问的URL中
 			LinkQueue.addVisitedURL(visitUrl);
 			//提取出下载网页中的URL

@@ -13,6 +13,13 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
 
 public class DownLoadFile {
 	
+	/**
+	 * 根据URL生成文件名，去除非文件名字符
+	 * [2017年11月29日 下午8:02:57]
+	 * @param url 链接
+	 * @param contentType 类型
+	 * @return 文件名
+	 */
 	public String getFileNameByUrl(String url, String contentType) {
 		//移除 http://
 		url = url.substring(7);
@@ -28,21 +35,31 @@ public class DownLoadFile {
 		}
 	}
 	
-	//保存袜业文字数组到本地文件
+	/**
+	 * 保存文字数组到本地文件
+	 * [2017年11月29日 下午8:06:48]
+	 * @param data 
+	 * @param filePath 
+	 */
 	private void saveToLocal(byte[] data, String filePath){
 		try{
 			DataOutputStream out = new DataOutputStream(new 
 					FileOutputStream(new File(filePath)));
 			for(int i=0;i<data.length;i++){
+				out.write(i);
+			}
 				out.flush();
 				out.close();
-			}
 		}catch(IOException e){
 			e.printStackTrace();
 		}
 	}
 	
-	//下载URL指向的网页
+	/** 下载URL指向的网页
+	 * [2017年11月29日 下午8:07:03]
+	 * @param url 链接
+	 * @return 
+	 */
 	public String downloadFile(String url) {
 		String filePath= null;
 		//生成httpClient对象并设置参数
@@ -72,6 +89,7 @@ public class DownLoadFile {
 			filePath = "temp\\"+getFileNameByUrl(url, getMethod.getResponseHeader(
 					"Content-Type").getValue());
 			saveToLocal(responseBody, filePath);
+			System.out.println(filePath);
 		}catch(IOException e){
 			e.printStackTrace();
 		} finally {

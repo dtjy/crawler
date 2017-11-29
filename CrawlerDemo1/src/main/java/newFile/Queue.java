@@ -2,6 +2,12 @@ package newFile;
 
 import java.util.LinkedList;
 
+/**
+ * URL队列类
+ ******************************************
+ * @author jiangyao  [2017年11月29日 下午7:46:26]
+ ******************************************
+ */
 public class Queue {
 	
 	//使用链表实现队列

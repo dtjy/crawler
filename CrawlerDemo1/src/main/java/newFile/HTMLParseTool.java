@@ -46,7 +46,8 @@ public class HTMLParseTool {
 				//<frame>标签
 				else {
 					//提取frame中的src属性的连接
-					String frame = tag.getText();
+//					String frame = tag.getText(); //不会显示  < 符号   与  > 符号
+					String frame = tag.toHtml();
 					int start = frame.indexOf("src=");
 					frame = frame.substring(start);
 					int end = frame.indexOf(" ");

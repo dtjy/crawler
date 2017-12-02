@@ -24,7 +24,7 @@ import org.htmlparser.util.ParserException;
 public class HtmlParserDemo5 {
 	public static void main(String[] args) {
 		try {
-			Parser parser = new Parser("C:/Users/Administrator/git/crawler/CrawlerDemo1/src/main/java/newFile/demo5html.html");
+			Parser parser = new Parser("C:/Users/Administrator/git/crawler/CrawlerDemo1/src/main/java/newFile/demo5.html");
 			parser.setEncoding("UTF-8");
 			NodeList nodeList = parser.extractAllNodesThatMatch(new NodeFilter() {
 				/**
@@ -38,6 +38,9 @@ public class HtmlParserDemo5 {
 			});
 			for(int i=0; i<nodeList.size(); i++){
 				System.err.println(i+"--------------"+nodeList.elementAt(i).getText());
+			}
+			for(int i=0; i<nodeList.size(); i++){
+				System.err.println(i+"--------------"+nodeList.elementAt(i));
 			}
 			System.err.println("--------------"+nodeList.elementAt(9).getText());
 			System.err.println("--------------"+nodeList.elementAt(9).toHtml());
